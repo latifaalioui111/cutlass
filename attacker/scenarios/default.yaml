@@ -1,0 +1,7 @@
+name: standard-scenario
+description: "Full attack chain: injection to exfiltration"
+steps:
+  - injection
+  - discovery
+  - credential_access
+  - exfiltration

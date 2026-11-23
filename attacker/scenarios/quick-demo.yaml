@@ -1,0 +1,5 @@
+name: quick-demo
+description: "Short scenario for live demo"
+steps:
+  - injection
+  - credential_access

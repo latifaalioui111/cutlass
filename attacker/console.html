@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cutlass Live Console</title>
+    <style>
+        body { font-family: monospace; background: #1a1a1a; color: #e0e0e0; padding: 20px; }
+        .event { padding: 8px; border-left: 3px solid #4caf50; margin-bottom: 4px; }
+    </style>
+</head>
+<body>
+    <h1>Cutlass — Live Attack Console</h1>
+    <div id="log"></div>
+
+    <script>
+        const log = document.getElementById("log");
+        const socket = new WebSocket("ws://" + window.location.host + "/ws");
+
+        socket.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            const line = document.createElement("div");
+            line.className = "event";
+            line.textContent = JSON.stringify(data);
+            log.appendChild(line);
+        };
+    </script>
+</body>
+</html>
